@@ -4,33 +4,82 @@ import { useRouter } from "next/router";
 const MENUS = [
     {
         name: "HOME",
-        path: "index"
+        path: "index",
+        linkProps: {
+            href: "/index"
+        }
     },
     {
         name: "PRODUCTS",
-        path: "products"
+        path: "products",
+        linkProps: {
+            href: "/post/[path]",
+            as: "/post/products"
+        }
     },
     {
         name: "SERVICES",
-        path: "solutions"
+        path: "solutions",
+        linkProps: {
+            href: "/post/[path]",
+            as: "/post/solutions"
+        }
     },
     {
         name: "PROJECTS",
-        path: "project"
+        path: "project",
+        linkProps: {
+            href: "/project"
+        }
     },
     {
         name: "ABOUT",
-        path: "about"
+        path: "about",
+        linkProps: {
+            href: "/about"
+        }
     },
     {
         name: "CONTACT US",
-        path: "contact"
+        path: "contact",
+        linkProps: {
+            href: "/contact"
+        }
     }
 ];
 
 const isAvtive = path => {
     const router = useRouter();
     return path.indexOf(router.query.path) > -1;
+};
+
+const PostLink = ({ props, active }) => {
+    const { linkProps } = props;
+
+    return (
+        <span>
+            <Link {...{ ...linkProps }}>
+                <a className={`navItemLink ${active}`}>
+                    <span className="menuTitle">{props.name}</span>
+                </a>
+            </Link>
+            <style jsx>{`
+                .navItemLink {
+                    display: inline-block;
+                    padding: 0 20px;
+                    text-decoration: none;
+                    color: #3080fe;
+                }
+                .active {
+                    border-bottom: 2px solid;
+                }
+                .menuTitle {
+                    font-size: 20px;
+                    font-weight: 400;
+                }
+            `}</style>
+        </span>
+    );
 };
 
 const Header = () => (
@@ -41,19 +90,7 @@ const Header = () => (
                 <li className="navItem">
                     {MENUS.map((props, ind) => {
                         const active = isAvtive(props.path) ? "active" : "";
-                        return (
-                            <Link
-                                href={`/post/[path]`}
-                                as={`/post/${props.path}`}
-                                key={ind}
-                            >
-                                <a className={`navItemLink ${active}`}>
-                                    <span className="menuTitle">
-                                        {props.name}
-                                    </span>
-                                </a>
-                            </Link>
-                        );
+                        return <PostLink key={ind} {...{ props, active }} />;
                     })}
                 </li>
             </ul>
@@ -66,7 +103,7 @@ const Header = () => (
                 position: fixed;
                 right: 0;
                 left: 0;
-                z-index: 999;
+                z-index: 1000;
                 min-width: 1200px;
                 background-color: #fff;
                 display: flex;
@@ -88,19 +125,6 @@ const Header = () => (
                 height: 40px;
                 line-height: 40px;
                 margin-left: 20px;
-            }
-            .navItemLink {
-                display: inline-block;
-                padding: 0 20px;
-                text-decoration: none;
-                color: #3080fe;
-            }
-            .active {
-                border-bottom: 2px solid;
-            }
-            .menuTitle {
-                font-size: 20px;
-                font-weight: 400;
             }
         `}</style>
     </div>

@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import "../slider.scss";
+import React, { Component } from 'react';
+import '../slider.scss';
 
 export default class SlideBanner extends Component {
-    static displayName = "SlideBanner";
+    static displayName = 'SlideBanner';
 
     constructor(props) {
         super(props);
@@ -11,7 +11,7 @@ export default class SlideBanner extends Component {
         };
     }
 
-    isSelected = selected => (selected ? " selected" : "");
+    isSelected = selected => (selected ? ' selected' : '');
 
     onMouseEnter = event => {
         const { index } = event.currentTarget.dataset;
@@ -24,11 +24,11 @@ export default class SlideBanner extends Component {
     };
 
     handleGoService = title => {
-        sessionStorage && sessionStorage.setItem("ty-fountain-product", title);
+        sessionStorage && sessionStorage.setItem('ty-fountain-product', title);
     };
 
     goServiceDetail = () => {
-        this.handleGoService("Home Fountain");
+        this.handleGoService('Home Fountain');
         const origin = window.location.origin;
         window.location.href = `${origin}/#/service?products`;
     };
@@ -44,80 +44,69 @@ export default class SlideBanner extends Component {
                     <div className="hy-friends-list">
                         <a
                             href="#service?products"
-                            className={`hy-friends-item ${
-                                selectedIndex === 0 ? "selected" : ""
-                            }`}
+                            className={`hy-friends-item ${selectedIndex === 0 ? 'selected' : ''}`}
                             data-index="0"
                             onMouseEnter={this.onMouseEnter}
-                            onClick={() => this.handleGoService("Water Screen")}
+                            onClick={() => this.handleGoService('Water Screen')}
                         >
                             <div className="hy-friends-img pro1" />
-                            <h4>Water Screen</h4>
+                            <h4 className="title-color">Water Screen</h4>
                             <p>
-                                3D Water Screen Show is a feast combined with
-                                science and creativity.
+                                3D Water Screen Show is a feast combined with science and
+                                creativity.
                             </p>
                         </a>
 
                         <a
                             href="#service?products"
-                            className={`hy-friends-item ${
-                                selectedIndex === 1 ? "selected" : ""
-                            }`}
+                            className={`hy-friends-item ${selectedIndex === 1 ? 'selected' : ''}`}
                             data-index="1"
                             onMouseEnter={this.onMouseEnter}
-                            onClick={() =>
-                                this.handleGoService("Water Curtain")
-                            }
+                            onClick={() => this.handleGoService('Water Curtain')}
                         >
                             <div className="hy-friends-img pro2" />
-                            <h4>Water Curtain</h4>
+                            <h4 className="title-color">Water Curtain</h4>
                             <p>
-                                it brings infinite fun and vitality to interior
-                                environment, and fashion to plazas and parks.
+                                it brings infinite fun and vitality to interior environment, and
+                                fashion to plazas and parks.
                             </p>
                         </a>
 
                         <a
                             href="#service?products"
-                            className={`hy-friends-item ${
-                                selectedIndex === 2 ? "selected" : ""
-                            }`}
+                            className={`hy-friends-item ${selectedIndex === 2 ? 'selected' : ''}`}
                             data-index="2"
                             onMouseEnter={this.onMouseEnter}
-                            onClick={() =>
-                                this.handleGoService("Water Fountain")
-                            }
+                            onClick={() => this.handleGoService('Water Fountain')}
                         >
                             <div className="hy-friends-img pro3" />
-                            <h4>Water Fountain</h4>
+                            <h4 className="title-color">Water Fountain</h4>
                             <p>
-                                We are transforming static water into dynamic,
-                                pouring soul into it, and companioning it with
-                                multiple lighting effects.
+                                We are transforming static water into dynamic, pouring soul into it,
+                                and companioning it with multiple lighting effects.
                             </p>
                         </a>
                         <a
                             href="#service?products"
-                            className={`hy-friends-item ${
-                                selectedIndex === 3 ? "selected" : ""
-                            }`}
+                            className={`hy-friends-item ${selectedIndex === 3 ? 'selected' : ''}`}
                             data-index="3"
                             onMouseEnter={this.onMouseEnter}
-                            onClick={() =>
-                                this.handleGoService("Music Fountain")
-                            }
+                            onClick={() => this.handleGoService('Music Fountain')}
                         >
                             <div className="hy-friends-img pro4" />
-                            <h4>Music Fountain</h4>
+                            <h4 className="title-color">Music Fountain</h4>
                             <p>
-                                A way to deeply involve with the spectator
-                                through the most fundamental and fascinating
-                                substance on earth.
+                                A way to deeply involve with the spectator through the most
+                                fundamental and fascinating substance on earth.
                             </p>
                         </a>
                     </div>
                 </div>
+                <style jsx>{`
+                    .title-color {
+                        color: #ccc;
+                    }
+                `}</style>
             </div>
         );
     }

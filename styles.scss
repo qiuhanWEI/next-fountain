@@ -1,7 +1,7 @@
 $color-brand1-6: #3080fe;
 
 body {
-    margin: 0
+    margin: 0;
 }
 
 .main-wrapper {
@@ -83,6 +83,14 @@ body {
     background: #f6f7f9;
 }
 
+.p16 {
+    padding: 16px;
+}
+
+.ft16 {
+    font-size: 16px !important;
+}
+
 .page-title {
     font-size: 30px;
     color: $color-brand1-6;
@@ -101,6 +109,25 @@ body {
         left: 50%;
         transform: translateX(-50%);
     }
+}
+
+.description {
+    font-size: 13px;
+    line-height: 22px;
+    color: #999;
+}
+
+.service-detail-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+.service-detail-slider {
+    height: 600px;
+    width: 800px;
+    margin: 0 auto;
 }
 
 .foot-wrapper {
@@ -141,6 +168,80 @@ body {
     color: $color-brand1-6;
 }
 
+.icon {
+    color: $color-brand1-6;
+}
+
+.mr8 {
+    margin-right: 8px;
+}
+
+.link {
+    color: $color-brand1-6;
+}
+
+.pagination {
+    text-align: center;
+}
+
+.page-dot {
+    cursor: pointer;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background: #ddd;
+    margin: 16px 10px 0;
+    &.active {
+        background: $color-brand1-6;
+    }
+}
+@mixin slider-icon {
+    width: 50px;
+    height: 50px;
+    z-index: 10000;
+    top: 50%;
+    margin-top: -25px;
+    position: absolute;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+@mixin icon-after($border-1, $border-2, $clr) {
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    width: 40px;
+    height: 40px;
+    border: 3px solid transparent;
+    transform: rotate(45deg);
+    #{$border-1}: 3px solid $clr;
+    #{$border-2}: 3px solid $clr;
+}
+
+.next-icon {
+    @include slider-icon;
+    right: 10px;
+    &::after {
+        @include icon-after(border-top, border-right, #3080fe);
+    }
+}
+
+.pre-icon {
+    @include slider-icon;
+    left: 10px;
+    &::after {
+        left: 10px;
+        @include icon-after(border-bottom, border-left, #3080fe);
+    }
+}
+
+.service-detail-img {
+    height: 100%;
+    width: 100%;
+}
+
 .thumb-1 {
     background: url('/thumb/thumb-1.jpg') center / cover no-repeat;
 }
@@ -173,4 +274,73 @@ body {
 }
 .thumb-11 {
     background: url('/thumb/thumb-11.jpg') center / cover no-repeat;
+}
+.ms-1 {
+    background: url('/service/ms-1.jpg') center / contain no-repeat;
+}
+.ms-2 {
+    background: url('/service/ms-2.jpg') center / contain no-repeat;
+}
+.ms-3 {
+    background: url('/service/ms-3.jpg') center / contain no-repeat;
+}
+.ms-4 {
+    background: url('/service/ms-4.jpg') center / contain no-repeat;
+}
+.ms-5 {
+    background: url('/service/ms-5.jpg') center / contain no-repeat;
+}
+.ms-6 {
+    background: url('/service/ms-6.jpg') center / contain no-repeat;
+}
+.m-1 {
+    background: url('/service/m-1.jpg') center / contain no-repeat;
+}
+.m-2 {
+    background: url('/service/m-2.jpg') center / contain no-repeat;
+}
+.m-3 {
+    background: url('/service/m-3.jpg') center / contain no-repeat;
+}
+.m-4 {
+    background: url('/service/m-4.jpg') center / contain no-repeat;
+}
+.m-5 {
+    background: url('/service/m-5.jpg') center / contain no-repeat;
+}
+.in-1 {
+    background: url('/service/in-1.jpg') center / contain no-repeat;
+}
+.as-1 {
+    background: url('/service/as-1.jpg') center / contain no-repeat;
+}
+.d-1 {
+    background: url('/service/d-1.jpg') center / contain no-repeat;
+}
+.d-2 {
+    background: url('/service/d-2.jpg') center / contain no-repeat;
+}
+.d-3 {
+    background: url('/service/d-3.jpg') center / contain no-repeat;
+}
+.d-4 {
+    background: url('/service/d-4.jpg') center / contain no-repeat;
+}
+.d-5 {
+    background: url('/service/d-5.jpg') center / contain no-repeat;
+}
+.d-6 {
+    background: url('/service/d-6.jpg') center / contain no-repeat;
+}
+.d-7 {
+    background: url('/service/d-7.jpg') center / contain no-repeat;
+}
+.d-8 {
+    background: url('/service/d-8.jpg') center / contain no-repeat;
+}
+.d-9 {
+    background: url('/service/d-9.jpg') center / contain no-repeat;
+}
+.d-10 {
+    background: url('/service/d-10.jpg') center / contain no-repeat;
 }

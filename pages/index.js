@@ -1,9 +1,4 @@
 import Layout from '../components/Layout';
-// import Slider from "../components/Slider";
-/* import Banner from "../components/Banner";
-import OurTurn from "../components/OurTurn"; */
-import Project from "../components/Project"; 
-
 import dynamic from 'next/dynamic';
 
 const LoadingP = () => <p style={{ textAlign: 'center' }}>Loading...</p>;
@@ -21,6 +16,9 @@ const DynamicSliderWithLoading = dynamic(() => import('../components/Slider'), {
 const DynamicProjectWithLoading = dynamic(() => import('../components/Project'), {
     loading: () => <LoadingP />
 });
+const DynamicServiceWithLoading = dynamic(() => import('../components/Service'), {
+    loading: () => <LoadingP />
+});
 
 export default function Index() {
     return (
@@ -28,18 +26,17 @@ export default function Index() {
             <div className="full-height display-flex w1200 main-wrapper">
                 {/* 首屏轮播 */}
                 <DynamicBanWithLoading />
-                {/* <Banner /> */}
             </div>
             {/* Our Turn */}
             <div className="w1200 main-wrapper">
                 <DynamicTurnWithLoading />
-                {/* <OurTurn /> */}
             </div>
             {/* what we can do */}
             <DynamicSliderWithLoading />
+            {/* service and solutions */}
+            <DynamicServiceWithLoading />
             {/* recent projects */}
-            {/* <DynamicProjectWithLoading /> */}
-            <Project />
+            <DynamicProjectWithLoading />
         </Layout>
     );
 }

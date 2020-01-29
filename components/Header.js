@@ -13,16 +13,16 @@ const MENUS = [
         name: "PRODUCTS",
         path: "products",
         linkProps: {
-            href: "/post/[path]",
-            as: "/post/products"
+            href: "/info/[path]",
+            as: "/info/products"
         }
     },
     {
         name: "SERVICES",
         path: "solutions",
         linkProps: {
-            href: "/post/[path]",
-            as: "/post/solutions"
+            href: "/info/[path]",
+            as: "/info/solutions"
         }
     },
     {

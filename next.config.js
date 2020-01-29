@@ -8,14 +8,17 @@ const withTM = require('next-transpile-modules');
 
 module.exports = withPlugins([withSass, withCss, withTM, withBundleAnalyzer], {
     transpileModules: ['antd'],
-    webpack: (config, {webpack, isServer}) => {
+    webpack: (config, {webpack, isServer, dev}) => {
         config.module.rules.push({
             test: /\.(png|svg|jpg|gif)$/,
             use: ['file-loader']
         });
 
         config.plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/))
-        if (!isServer) {
+       
+        console.log(isServer, dev)
+        if (!isServer && !dev) {
+            console.log(config.optimization.splitChunks)
             config.optimization.splitChunks.cacheGroups.commons.minChunks = 2;
           }
         return config;
